@@ -74,10 +74,14 @@ Add the following to your rake tasks:
 namespace :traits do
   desc 'Document traits (in html file)'
   task :doc => :environment do
+    require 'traitable/document_runner'
+
     doc = Traitable::DocumentRunner.new().to_doc
+    
     file = File.open('public/traits.html','w')
     file << doc
     file.close
+    
     puts "Document written, run:\nopen public/traits.html"
   end
 end
