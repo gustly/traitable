@@ -1,0 +1,22 @@
+%html
+  %body
+    %link{ href:"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css", rel: "stylesheet" }
+    %script{ src:"http://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/js/bootstrap.min.js" }
+    :css
+      header {
+        background-color: #000;
+        color: #fff;
+      }
+
+  %header
+    .container
+      .row
+        %h1 Traits Documentation
+
+  .container
+    .row
+      .span12
+        - traits.each do |name,block|
+          .row.trait
+            %h2= "Trait: #{name.to_s.humanize.titlecase}"
+            %pre.trait-definition= block.source
