@@ -7,10 +7,5 @@ module Traitable
     def initialize(user)
       @user = user
     end
-
-    def self.trait(name, &block)
-      TraitDefinitions.define_trait(name, &block)
-    end
-
   end
 end

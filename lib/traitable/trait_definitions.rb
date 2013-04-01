@@ -1,6 +1,5 @@
 module Traitable
   module TraitDefinitions
-
     def self.define_trait(name, &block)
       define_method(:"#{name.to_sym}?", &block)
       traits[name.to_sym] = block
@@ -9,6 +8,5 @@ module Traitable
     def self.traits
       @traits ||= {}
     end
-
   end
 end

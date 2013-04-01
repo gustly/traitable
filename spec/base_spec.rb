@@ -10,16 +10,20 @@ module Traitable
     end
 
     describe ".trait" do
-      let_double(:name)
-      let(:block) { -> {} }
-
       it "defines the trait in the trait definitions" do
-        TraitDefinitions.stub(:define_trait) do |passed_in_name, &passed_in_block|
-          passed_in_name.should == name
-          passed_in_block.should == block
+        trait_name = 'trait_name'
+        trait_block = -> { :some_block }
+
+        TraitDefinitions.should_receive(:define_trait) do |passed_in_name, &passed_in_block|
+          passed_in_name.should == trait_name
+          passed_in_block.should == trait_block
         end
 
-        Base.trait(name, &block)
+        Module.new do
+          include Traitable::Definition
+
+          trait trait_name, &trait_block
+        end
       end
     end
   end
