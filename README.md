@@ -1,5 +1,7 @@
 # Traitable
 
+[![Build Status](https://travis-ci.org/gustly/traitable.png?branch=master)](https://travis-ci.org/gustly/traitable)
+
 Traits are permissible roles for CanCan that are connected to specific
 models.
 
